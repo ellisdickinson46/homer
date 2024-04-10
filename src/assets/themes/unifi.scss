@@ -1,0 +1,244 @@
+/*
+ * Unifi theme
+ * Inspired by the great https://github.com/jeroenpardon/Unifi start page
+ * Author: @bastienwirtz
+ */
+
+:root {
+    --hover-transition: cubic-bezier(0.165, 0.84, 0.44, 1) 300ms
+}
+
+ body #app.theme-unifi {
+    font-family: "UI Sans", sans-serif;
+    #bighead .first-line {
+        min-height: 90px;
+        border-bottom: 1px solid var(--border);
+        background-color: var(--background-header);
+    }
+    #bighead .dashboard-title {
+        padding: 0;
+        h1 {
+            font-family: "UI Sans", sans-serif;
+            margin-top: -18px;
+            font-weight: bold;
+            font-size: 2rem;
+            padding-top: 6px;
+        }
+    }
+    #bighead .container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #main-section {
+        .title { font-size: 1.3em; }
+        .title:not(.is-spaced) + .subtitle { margin-top: -1.55em; }
+        .subtitle {font-size: 0.87em; }
+    }
+    .navbar {
+        height: 48px;
+        min-height: 48px;
+        background-color: var(--background-navbar);
+        border-bottom: 1px solid;
+        border-color: var(--border);
+
+        > .container {
+            min-height: unset;
+            height: 100%;
+        }
+        .navbar-menu > * { flex: 1; }
+        .navbar-item, .navbar-menu { height: 30px; }
+        .navbar-start, .navbar-end { gap: 5px; }
+        .navbar-brand, .navbar-tabs { min-height: unset; }
+
+        a.navbar-item {
+            color: var(--text);
+            border-radius: 6px;
+            transition: var(--hover-transition);
+
+            &:hover {
+                transition: var(--hover-transition);
+                background: rgba(var(--highlight-rgb), 0.2);
+                color: var(--highlight);
+            }
+            &:focus-within {
+                background-color: unset;
+                color: unset;
+            }
+        }
+
+
+        .navbar-inline-title,
+        .navbar-mobile-inline-title {
+            align-items: center;
+            justify-content:center;
+            color: var(--text);
+            font-weight: bold;
+        }
+        .navbar-inline-title { display: flex; }
+        .navbar-mobile-inline-title { display: none; }
+
+    }
+    .navbar-inline-logo {
+        height: 26px;
+        padding: 0 10px;
+        &.mobile {
+            padding-right: 0;
+            display: none;
+        }
+    }
+    .navbar-burger {
+        height: 30px;
+        width: 30px;
+        min-height: 30px;
+        min-width: 30px;
+        margin: 10px;
+        border-radius: 6px;
+        transition: var(--hover-transition);
+        color: var(--text);
+        &:hover {
+            background-color: rgba(var(--highlight-rgb), 0.2);
+            color: var(--highlight);
+            transition: var(--hover-transition);
+        }
+        
+    }
+  
+    .card {
+        background-color: var(--background-card);
+        box-shadow: none;
+        border: 1px solid;
+        border-color: var(--border);
+        border-radius:8px;
+  
+        .title { font-weight: bold; }
+        .tag { background-color: var(--highlight); }
+        .status:before { box-shadow: none; }
+        &:hover{
+            background-color: rgba(var(--highlight-rgb), 0.2);
+            transform: none;
+        }
+    }
+
+    .search-label:focus {
+        border: none;
+    }
+    .search-bar {
+        display: flex;
+        input {
+            color: var(--text);
+            margin-top: 0;
+            background-color: var(--input);
+            border: none;
+            &:focus {
+                color: var(--text);
+                width: 250px;
+                transition: var(--hover-transition);
+            }
+            &:hover {
+                background-color: var(--input-hover);
+            }
+            &:focus-visible {
+                background-color: var(--input-hover);
+                outline: none;
+            }
+        }
+        :before {
+            top: 3px;
+            left: 15px;
+            color: var(--text);
+        }
+    }
+    
+
+    .message { border-radius: 8px; }
+    .footer {
+        box-shadow: none;
+        border-top: 1px solid var(--border);
+    }
+
+    // Unify elements to appear as one object via borders
+    .columns.is-multiline.layout-vertical .column {
+        > div:nth-child(2) {
+            .card{
+                border-bottom-left-radius: 0;
+                border-bottom-right-radius: 0;
+            }
+        }
+        > div:not(:nth-child(-n+2), :last-child){
+            .card{ border-radius: 0; }
+        }
+        > div:nth-child(n+3) {
+            margin-top: -1px;
+            .card {
+                border-top-left-radius: 0;
+                border-top-right-radius: 0;
+            }
+        }
+    }
+    .columns.is-multiline:not(.layout-vertical){
+        .group-title { margin-bottom: 0.3rem; }
+        .column { padding: 0.5rem; }
+    }
+}
+
+@media screen and (max-width: 1023px) {
+    body #app.theme-unifi {
+        #bighead .navbar .container {
+            justify-content: right;
+        }
+        .navbar {
+            .navbar-mobile-inline-title {
+                display: flex;
+                margin-right: auto;
+                padding-left: 15px;
+            }
+            .navbar-inline-logo.mobile { display: inherit; }
+            .navbar-inline-title { display: none; }
+            .navbar-menu.is-active {
+                position: absolute;
+                top: 100%;
+                width: 100%;
+                height: unset;
+                background-color: var(--background-navbar);
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+                box-shadow: none;
+                border-top: 1px solid var(--border);
+                border-bottom: 1px solid var(--border);
+                padding: 0.5rem;
+
+                > .navbar-start, > .navbar-end{
+                    display: flex;
+                    flex-direction: column;
+                    .navbar-item {
+                        height: 38px;
+                        display: flex !important;
+                        align-items: center;
+                    }
+                    .navbar-item:not(.search-bar), .navbar-link {
+                        padding: 0 10px;
+                    }
+                    .navbar-item.search-bar {
+                        padding: 0;
+                        width: 100%;
+                    }
+                }
+            }
+            .search-bar {
+                input {
+                    height: 38px;
+                    padding: 2px 12px 2px 38px;
+                    width: 100%;
+                    &:focus { width: 100%; }
+                }
+                :before {
+                    top: 7px;
+                    left: 8px;
+                }
+            }
+        }
+    }
+}

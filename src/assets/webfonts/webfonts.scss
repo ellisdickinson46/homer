@@ -21,3 +21,21 @@
     /* Chrome 26+, Opera 23+, Firefox 39+ */
       url("./webfonts/lato/lato-v16-latin-regular.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
+
+/* UI Sans - Regular */
+@font-face {
+  font-family: "UI Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-display:swap;
+  src: local("UI Sans"), local(UI-Sans-Regular),
+    url("./webfonts/ui-sans/UI_Sans_v7_Regular.woff2") format("woff2")
+}
+@font-face {
+  font-family: "UI Sans";
+  font-style: bold;
+  font-weight: 800;
+  font-display:swap;
+  src: local("UI Sans"), local(UI-Sans-Regular),
+    url("./webfonts/ui-sans/UI_Sans_v7_Bold.woff2") format("woff2")
+}
