@@ -33,6 +33,8 @@
         :open="showMenu"
         :links="config.links"
         @navbar-toggle="showMenu = !showMenu"
+        :pagetitle="config.title"
+        :logoimg="config.logo"
       >
         <DarkMode
           @updated="isDark = $event"

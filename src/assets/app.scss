@@ -6,6 +6,7 @@
 
 // Themes import
 @import "./themes/sui.scss";
+@import "./themes/unifi.scss";
 
 @mixin ellipsis() {
   white-space: nowrap;
@@ -157,8 +158,11 @@ body {
           background-color: var(--highlight-hover);
         }
       }
-	.navbar-menu {
-      background-color: inherit;
+
+      .navbar-inline-title, .navbar-mobile-inline-title { display:none; }
+
+      .navbar-menu {
+        background-color: inherit;
       }
     }
     .navbar-end {
