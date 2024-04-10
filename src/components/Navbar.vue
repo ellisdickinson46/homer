@@ -2,6 +2,13 @@
   <div v-cloak v-if="links" class="container-fluid">
     <nav class="navbar" role="navigation" aria-label="main navigation">
       <div class="container">
+        <img
+          class="navbar-inline-logo mobile"
+          v-if="logoimg"
+          :src="logoimg"
+          alt="dashboard logo"
+        >
+        <span class="navbar-mobile-inline-title">{{ pagetitle }}</span>
         <div class="navbar-brand">
           <a
             role="button"
@@ -33,6 +40,15 @@
               {{ link.name }}
             </a>
           </div>
+          <div class="navbar-inline-title">
+            <img
+              class="navbar-inline-logo"
+              v-if="logoimg"
+              :src="logoimg"
+              alt="dashboard logo"
+            >
+            <span class="navbar-inline-title">{{ pagetitle }}</span>
+          </div>
           <div class="navbar-end">
             <slot></slot>
           </div>
@@ -51,6 +67,8 @@ export default {
       default: false,
     },
     links: Array,
+    pagetitle: String,
+    logoimg: String,
   },
   computed: {
     showMenu: function () {
